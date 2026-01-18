@@ -1,0 +1,408 @@
+/* ============================================
+   COMMA FALL - REFINED THEME
+   Clean, newspaper-inspired design
+   ============================================ */
+
+.cf-container {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #F9F9F9;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #111111;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Header */
+.cf-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    z-index: 10;
+}
+
+.cf-back-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border: 1px solid #E5E5EA;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    color: #666666;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.cf-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #111111;
+}
+
+.cf-stats {
+    display: flex;
+    gap: 8px;
+}
+
+.cf-score {
+    background: #FF3B30;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.cf-timer {
+    background: #FFFFFF;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #111111;
+    border: 1px solid #E5E5EA;
+}
+
+/* Menu Screen */
+.cf-menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+}
+
+.cf-demo-marks {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.demo-mark {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FF3B30;
+    border-radius: 14px;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 59, 48, 0.3);
+    animation: markFloat 2s ease-in-out infinite;
+}
+
+.demo-mark:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.demo-mark:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.demo-mark:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+@keyframes markFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.cf-menu h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    color: #111111;
+}
+
+.cf-menu p {
+    color: #666666;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    max-width: 280px;
+}
+
+.cf-rules {
+    list-style: none;
+    background: #FFFFFF;
+    padding: 16px 20px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    border: 1px solid #E5E5EA;
+    width: 100%;
+    max-width: 300px;
+}
+
+.cf-rules li {
+    padding: 6px 0;
+    font-size: 0.95rem;
+    color: #666666;
+    text-align: left;
+}
+
+.cf-start-btn {
+    background: #FF3B30;
+    color: white;
+    border: none;
+    padding: 16px 48px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 4px 20px rgba(255, 59, 48, 0.35);
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.2s;
+}
+
+.cf-start-btn:active {
+    transform: scale(0.96);
+}
+
+/* Game Screen */
+.cf-game {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.cf-question-area {
+    background: #FFFFFF;
+    margin: 0 16px;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E5E5EA;
+    z-index: 5;
+}
+
+.cf-question-area.reading {
+    text-align: center;
+    padding: 32px 20px;
+}
+
+.cf-read-prompt {
+    font-size: 0.9rem;
+    color: #FF3B30;
+    font-weight: 600;
+    margin-bottom: 16px;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.cf-countdown {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #FF3B30;
+}
+
+.cf-sentence {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #111111;
+    margin: 0;
+    text-align: center;
+}
+
+.cf-feedback {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    z-index: 20;
+}
+
+.cf-feedback.correct {
+    background: #E8F9ED;
+    color: #1B7F37;
+}
+
+.cf-feedback.wrong {
+    background: #FFEBE9;
+    color: #D32F2F;
+}
+
+/* Falling area */
+.cf-fall-area {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    pointer-events: auto;
+}
+
+/* Lane dividers */
+.cf-fall-area::before,
+.cf-fall-area::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #E5E5EA;
+}
+
+.cf-fall-area::before {
+    left: 33%;
+}
+
+.cf-fall-area::after {
+    right: 33%;
+}
+
+.falling-punct {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FF3B30;
+    border: none;
+    border-radius: 16px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 59, 48, 0.35);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    z-index: 10;
+}
+
+.falling-punct:active {
+    transform: scale(1.1);
+    background: #E0352B;
+}
+
+.cf-progress {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #FFFFFF;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #666666;
+    border: 1px solid #E5E5EA;
+    z-index: 5;
+}
+
+/* Results Screen */
+.cf-results {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+}
+
+.cf-result-marks {
+    margin-bottom: 20px;
+}
+
+.result-mark {
+    font-size: 4rem;
+}
+
+.cf-results h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: #111111;
+}
+
+.cf-final-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.cf-final-score .score-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 5rem;
+    font-weight: 800;
+    color: #FF3B30;
+    line-height: 1;
+}
+
+.cf-final-score .score-label {
+    font-size: 1.1rem;
+    color: #666666;
+    font-weight: 500;
+}
+
+.cf-result-buttons {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.cf-btn-primary {
+    flex: 1;
+    background: #FF3B30;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 4px 15px rgba(255, 59, 48, 0.3);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.cf-btn-secondary {
+    flex: 1;
+    background: #FFFFFF;
+    color: #666666;
+    border: 1px solid #E5E5EA;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+}

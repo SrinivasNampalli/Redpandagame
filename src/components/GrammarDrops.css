@@ -1,0 +1,346 @@
+/* ============================================
+   GRAMMAR DROPS - NYT-STYLE GRAMMAR GAME
+   Clean newspaper aesthetic
+   ============================================ */
+
+.gd-container {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #F9F9F9;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #111111;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+/* Header */
+.gd-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.gd-back-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border: 1px solid #E5E5EA;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    color: #666666;
+    cursor: pointer;
+}
+
+.gd-title {
+    flex: 1;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.gd-progress {
+    background: #FFFFFF;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #FF3B30;
+    border: 1px solid #E5E5EA;
+}
+
+/* Menu Screen */
+.gd-menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.gd-icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+}
+
+.gd-menu h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    margin-bottom: 8px;
+}
+
+.gd-menu p {
+    color: #666666;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    max-width: 280px;
+}
+
+.gd-rules {
+    list-style: none;
+    background: #FFFFFF;
+    padding: 16px 20px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    border: 1px solid #E5E5EA;
+    width: 100%;
+    max-width: 300px;
+}
+
+.gd-rules li {
+    padding: 8px 0;
+    font-size: 0.95rem;
+    color: #666666;
+    text-align: left;
+}
+
+.gd-start-btn {
+    background: #FF3B30;
+    color: white;
+    border: none;
+    padding: 16px 48px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 4px 20px rgba(255, 59, 48, 0.35);
+}
+
+/* Game Screen */
+.gd-game {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.gd-category {
+    align-self: flex-start;
+    background: #111111;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+}
+
+.gd-question-card {
+    background: #FFFFFF;
+    padding: 24px 20px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E5E5EA;
+    margin-bottom: 20px;
+}
+
+.gd-sentence {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #111111;
+    margin: 0;
+}
+
+.gd-blank {
+    display: inline-block;
+    padding: 2px 12px;
+    background: #F5F5F5;
+    border: 2px dashed #E5E5EA;
+    border-radius: 6px;
+    font-weight: 700;
+    color: #FF3B30;
+    margin: 0 4px;
+    min-width: 80px;
+    text-align: center;
+}
+
+.gd-blank.correct {
+    background: #E8F9ED;
+    border: 2px solid #34C759;
+    color: #1B7F37;
+}
+
+.gd-blank.wrong {
+    background: #FFEBE9;
+    border: 2px solid #FF3B30;
+    color: #D32F2F;
+}
+
+/* Options */
+.gd-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.gd-option {
+    background: #FFFFFF;
+    border: 2px solid #E5E5EA;
+    border-radius: 14px;
+    padding: 16px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111111;
+    cursor: pointer;
+    transition: all 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.gd-option:active:not(:disabled) {
+    transform: scale(0.95);
+}
+
+.gd-option.correct {
+    background: #E8F9ED;
+    border-color: #34C759;
+    color: #1B7F37;
+}
+
+.gd-option.wrong {
+    background: #FFEBE9;
+    border-color: #FF3B30;
+    color: #D32F2F;
+}
+
+.gd-option:disabled {
+    opacity: 0.7;
+}
+
+/* Explanation */
+.gd-explanation {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 20px;
+    border: 2px solid #FF3B30;
+    box-shadow: 0 4px 20px rgba(255, 59, 48, 0.15);
+}
+
+.gd-explanation-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.wrong-icon {
+    font-size: 1.25rem;
+}
+
+.gd-explanation-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #333333;
+    margin: 0 0 16px 0;
+}
+
+.gd-next-btn {
+    width: 100%;
+    background: #FF3B30;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Results */
+.gd-results {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.gd-result-icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+}
+
+.gd-results h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+}
+
+.gd-final-score {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.gd-final-score .score-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #FF3B30;
+}
+
+.gd-final-score .score-divider {
+    font-size: 2rem;
+    color: #E5E5EA;
+}
+
+.gd-final-score .score-total {
+    font-size: 2rem;
+    color: #888888;
+}
+
+.gd-score-message {
+    color: #666666;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    max-width: 280px;
+}
+
+.gd-result-buttons {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.gd-btn-primary {
+    flex: 1;
+    background: #FF3B30;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.gd-btn-secondary {
+    flex: 1;
+    background: #FFFFFF;
+    color: #666666;
+    border: 1px solid #E5E5EA;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    font-family: inherit;
+}

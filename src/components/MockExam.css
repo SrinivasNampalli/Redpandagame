@@ -1,0 +1,458 @@
+/* ============================================
+   MOCK EXAM - SAT PRACTICE TEST
+   Clean, professional exam interface
+   ============================================ */
+
+.me-container {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #F9F9F9;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #111111;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+
+/* Header */
+.me-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.me-back-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border: 1px solid #E5E5EA;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    color: #666666;
+    cursor: pointer;
+}
+
+.me-title {
+    flex: 1;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.me-timer {
+    background: #111111;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: 'SF Mono', monospace;
+}
+
+.me-timer.warning {
+    background: #FF3B30;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Intro Screen */
+.me-intro {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.me-icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+}
+
+.me-intro h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    margin-bottom: 8px;
+}
+
+.me-intro p {
+    color: #666666;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.me-info-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 16px 20px;
+    border: 1px solid #E5E5EA;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 24px;
+}
+
+.me-info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #F0F0F5;
+}
+
+.me-info-row:last-child {
+    border-bottom: none;
+}
+
+.me-info-row span {
+    color: #666666;
+}
+
+.me-start-btn {
+    background: #FF3B30;
+    color: white;
+    border: none;
+    padding: 16px 48px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 4px 20px rgba(255, 59, 48, 0.35);
+}
+
+/* Exam Screen */
+.me-exam,
+.me-review {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Question Navigator */
+.me-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: #FFFFFF;
+    border-radius: 12px;
+    border: 1px solid #E5E5EA;
+}
+
+.me-nav-btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F5F5F5;
+    border: 1px solid #E5E5EA;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #666666;
+    cursor: pointer;
+}
+
+.me-nav-btn.current {
+    background: #111111;
+    color: white;
+    border-color: #111111;
+}
+
+.me-nav-btn.answered {
+    background: #007AFF;
+    color: white;
+    border-color: #007AFF;
+}
+
+.me-nav-btn.correct {
+    background: #34C759;
+    color: white;
+    border-color: #34C759;
+}
+
+.me-nav-btn.wrong {
+    background: #FF3B30;
+    color: white;
+    border-color: #FF3B30;
+}
+
+/* Question Card */
+.me-question-card {
+    background: #FFFFFF;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid #E5E5EA;
+    margin-bottom: 16px;
+}
+
+.me-question-card.review {
+    border-color: #007AFF;
+}
+
+.me-question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.me-q-number {
+    font-weight: 700;
+    color: #111111;
+}
+
+.me-q-category {
+    font-size: 0.75rem;
+    color: #888888;
+    background: #F5F5F5;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.me-sentence {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #111111;
+    margin: 0;
+}
+
+.me-blank {
+    display: inline-block;
+    padding: 2px 12px;
+    background: #F5F5F5;
+    border: 2px dashed #E5E5EA;
+    border-radius: 6px;
+    font-weight: 700;
+    color: #007AFF;
+    margin: 0 4px;
+}
+
+.me-blank.correct {
+    background: #E8F9ED;
+    border-color: #34C759;
+    color: #1B7F37;
+}
+
+.me-blank.wrong {
+    background: #FFEBE9;
+    border-color: #FF3B30;
+    color: #D32F2F;
+}
+
+/* Options */
+.me-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.me-option {
+    background: #FFFFFF;
+    border: 2px solid #E5E5EA;
+    border-radius: 12px;
+    padding: 14px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #111111;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.me-option.selected {
+    background: #007AFF;
+    color: white;
+    border-color: #007AFF;
+}
+
+/* Buttons */
+.me-buttons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.me-btn-nav {
+    flex: 1;
+    background: #FFFFFF;
+    color: #666666;
+    border: 1px solid #E5E5EA;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.me-btn-nav:disabled {
+    opacity: 0.4;
+}
+
+.me-btn-submit {
+    flex: 1;
+    background: #FF3B30;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.me-progress {
+    text-align: center;
+    font-size: 0.85rem;
+    color: #888888;
+}
+
+/* Results */
+.me-results {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.me-result-icon {
+    font-size: 4rem;
+    margin-bottom: 16px;
+}
+
+.me-results h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+}
+
+.me-score-circle {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.me-score-circle .score-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #FF3B30;
+}
+
+.me-score-circle .score-total {
+    font-size: 2rem;
+    color: #888888;
+}
+
+.me-score-percent {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #666666;
+    margin-bottom: 20px;
+}
+
+.me-review-btn {
+    background: #FFFFFF;
+    color: #007AFF;
+    border: 2px solid #007AFF;
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: inherit;
+    margin-bottom: 20px;
+}
+
+.me-result-buttons {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.me-btn-primary {
+    flex: 1;
+    background: #FF3B30;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.me-btn-secondary {
+    flex: 1;
+    background: #FFFFFF;
+    color: #666666;
+    border: 1px solid #E5E5EA;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* Review Mode */
+.me-result-badge {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.me-result-badge.correct {
+    background: #E8F9ED;
+    color: #1B7F37;
+}
+
+.me-result-badge.wrong {
+    background: #FFEBE9;
+    color: #D32F2F;
+}
+
+.me-your-answer {
+    margin-top: 16px;
+    padding: 12px;
+    background: #F5F5F5;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.me-explanation {
+    margin-top: 12px;
+    padding: 12px;
+    background: #FFF9E6;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}

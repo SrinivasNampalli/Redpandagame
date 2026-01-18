@@ -1,0 +1,560 @@
+/* ============================================
+   TRANSITION TRACKS - TRAIN IN CENTER
+   Large train dead center of screen
+   ============================================ */
+
+.tt-container {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #F9F9F9;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #111111;
+    padding: 16px;
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Header */
+.tt-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+
+.tt-back-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border: 1px solid #E5E5EA;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    color: #666666;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.tt-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #111111;
+}
+
+.tt-score {
+    background: #FFFFFF;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #FF3B30;
+    border: 1px solid #E5E5EA;
+}
+
+/* Menu Screen */
+.tt-menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.tt-train-preview {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 24px;
+    transform: scale(1.3);
+}
+
+.tt-menu h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.75rem;
+    margin-bottom: 8px;
+    color: #111111;
+}
+
+.tt-menu p {
+    color: #666666;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.tt-rules {
+    list-style: none;
+    background: #FFFFFF;
+    padding: 16px 20px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    border: 1px solid #E5E5EA;
+    width: 100%;
+    max-width: 300px;
+}
+
+.tt-rules li {
+    padding: 6px 0;
+    font-size: 0.95rem;
+    color: #666666;
+    text-align: left;
+}
+
+.tt-start-btn {
+    background: #FF3B30;
+    color: white;
+    border: none;
+    padding: 16px 48px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 4px 20px rgba(255, 59, 48, 0.35);
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Game Screen - Full flex layout */
+.tt-game {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Timer */
+.tt-timer-container {
+    position: relative;
+    height: 6px;
+    background: #E5E5EA;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.tt-timer-bar {
+    height: 100%;
+    border-radius: 3px;
+    background: #34C759;
+}
+
+.tt-timer-text {
+    position: absolute;
+    right: 0;
+    top: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #666666;
+}
+
+/* Question Card - Compact at top */
+.tt-question-card {
+    background: #FFFFFF;
+    padding: 14px 18px;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E5E5EA;
+    flex-shrink: 0;
+}
+
+.tt-question-number {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: #888888;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.tt-sentence {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #111111;
+    margin: 0;
+}
+
+.tt-blank {
+    display: inline-block;
+    padding: 2px 10px;
+    background: #F9F9F9;
+    border: 2px dashed #E5E5EA;
+    border-radius: 4px;
+    font-weight: 700;
+    color: #FF3B30;
+    margin: 0 4px;
+}
+
+.tt-blank.correct {
+    background: #E8F9ED;
+    border: 2px solid #34C759;
+    color: #1B7F37;
+}
+
+.tt-blank.wrong {
+    background: #FFEBE9;
+    border: 2px solid #FF3B30;
+    color: #D32F2F;
+}
+
+.tt-feedback {
+    margin-top: 8px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.tt-feedback.correct {
+    background: #E8F9ED;
+    color: #1B7F37;
+}
+
+.tt-feedback.wrong {
+    background: #FFEBE9;
+    color: #D32F2F;
+}
+
+/* =============================================
+   TRAIN AREA - DEAD CENTER OF SCREEN
+   ============================================= */
+.tt-track-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Tracks run horizontally in the center */
+.tt-tracks {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 24px;
+    background:
+        repeating-linear-gradient(90deg, #5D4037 0px, #5D4037 35px, transparent 35px, transparent 55px),
+        linear-gradient(180deg, #8D6E63 0%, #6D4C41 100%);
+    border-radius: 4px;
+    z-index: 1;
+}
+
+/* Train sits on tracks, animated */
+.tt-train-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    z-index: 2;
+    transform: scale(1.5);
+    transform-origin: center bottom;
+    margin-bottom: 12px;
+}
+
+/* =============================================
+   DIY LOCOMOTIVE - LARGER
+   ============================================= */
+.locomotive {
+    position: relative;
+    flex-shrink: 0;
+    width: 85px;
+    height: 75px;
+}
+
+.locomotive-cabin {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, #FF3B30, #E0352B);
+    border-radius: 8px 8px 0 0;
+    border: 3px solid #D32F2F;
+}
+
+.locomotive-window {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 18px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: 2px solid #D32F2F;
+}
+
+.locomotive-body {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 58px;
+    height: 30px;
+    background: linear-gradient(180deg, #FF3B30, #E0352B);
+    border-radius: 6px 0 0 6px;
+    border: 3px solid #D32F2F;
+}
+
+.locomotive-front {
+    position: absolute;
+    left: -10px;
+    bottom: 0;
+    width: 18px;
+    height: 18px;
+    background: #D32F2F;
+    border-radius: 50% 0 0 50%;
+}
+
+.locomotive-chimney {
+    position: absolute;
+    bottom: 62px;
+    left: 16px;
+    width: 18px;
+    height: 26px;
+    background: linear-gradient(180deg, #424242, #212121);
+    border-radius: 4px 4px 0 0;
+}
+
+.smoke {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 26px;
+    height: 20px;
+    background: rgba(200, 200, 200, 0.6);
+    border-radius: 50%;
+}
+
+.locomotive-wheels {
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    display: flex;
+    gap: 10px;
+}
+
+.wheel {
+    width: 18px;
+    height: 18px;
+    background: #212121;
+    border-radius: 50%;
+    border: 3px solid #424242;
+}
+
+.wheel.big {
+    width: 22px;
+    height: 22px;
+    margin-top: -4px;
+}
+
+/* =============================================
+   DIY TRAIN CAR - LARGER TEXT
+   ============================================= */
+.train-car {
+    position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.train-car-body {
+    width: 90px;
+    height: 65px;
+    border-radius: 8px;
+    border: 4px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: #FFFFFF;
+    border-color: #E5E5EA;
+}
+
+.train-car.red .train-car-body {
+    background: #FF3B30;
+    border-color: #D32F2F;
+}
+
+.train-car.blue .train-car-body {
+    background: #007AFF;
+    border-color: #0056B3;
+}
+
+.train-car.green .train-car-body {
+    background: #34C759;
+    border-color: #28A745;
+}
+
+.train-car.yellow .train-car-body {
+    background: #FFCC00;
+    border-color: #E6B800;
+}
+
+.train-car-window {
+    position: absolute;
+    top: 8px;
+    width: 80%;
+    height: 14px;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 4px;
+}
+
+.train-car-word {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: white;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 0 8px;
+    margin-top: 10px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.train-car.yellow .train-car-word {
+    color: #111111;
+    text-shadow: none;
+}
+
+.train-car-wheels {
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 40px;
+}
+
+.train-car-wheels .wheel {
+    width: 16px;
+    height: 16px;
+}
+
+.train-car-connector {
+    position: absolute;
+    right: -12px;
+    bottom: 26px;
+    width: 12px;
+    height: 10px;
+    background: #424242;
+    border-radius: 3px;
+}
+
+/* Correct/Wrong States */
+.train-car.correct .train-car-body {
+    background: #34C759 !important;
+    border-color: #28A745 !important;
+    box-shadow: 0 0 30px rgba(52, 199, 89, 0.6);
+}
+
+.train-car.wrong .train-car-body {
+    opacity: 0.4;
+}
+
+/* =============================================
+   RESULTS SCREEN
+   ============================================= */
+.tt-results {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.tt-results h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: #111111;
+}
+
+.tt-final-score {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 24px;
+}
+
+.tt-score-number {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #FF3B30;
+}
+
+.tt-score-divider {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #E5E5EA;
+}
+
+.tt-score-total {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #888888;
+}
+
+.tt-result-buttons {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.tt-btn-primary {
+    flex: 1;
+    background: #FF3B30;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 4px 15px rgba(255, 59, 48, 0.3);
+}
+
+.tt-btn-secondary {
+    flex: 1;
+    background: #FFFFFF;
+    color: #666666;
+    border: 1px solid #E5E5EA;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 14px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.tt-train-preview.celebration .locomotive,
+.tt-train-preview.celebration .train-car {
+    animation: trainBounce 0.5s ease infinite;
+}
+
+@keyframes trainBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}

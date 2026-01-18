@@ -1,0 +1,216 @@
+/* ============================================
+   WORD BANK - VOCABULARY DICTIONARY
+   Clean, readable, mobile-first design
+   ============================================ */
+
+.wb-container {
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: #F9F9F9;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #111111;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.wb-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E5E5EA;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.wb-back-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F9F9F9;
+    border: 1px solid #E5E5EA;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    color: #666666;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.wb-title {
+    flex: 1;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.wb-count {
+    background: #FF3B30;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* Search */
+.wb-search {
+    padding: 12px 16px;
+    background: #FFFFFF;
+}
+
+.wb-search-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: #F9F9F9;
+    border: 1px solid #E5E5EA;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #111111;
+    -webkit-appearance: none;
+}
+
+.wb-search-input:focus {
+    outline: none;
+    border-color: #FF3B30;
+}
+
+.wb-search-input::placeholder {
+    color: #888888;
+}
+
+/* Category Tabs */
+.wb-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.wb-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.wb-tab {
+    flex-shrink: 0;
+    padding: 10px 16px;
+    background: #FFFFFF;
+    border: 1px solid #E5E5EA;
+    border-radius: 20px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #666666;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.wb-tab.active {
+    background: #FF3B30;
+    color: white;
+    border-color: #FF3B30;
+}
+
+/* Word List */
+.wb-list {
+    flex: 1;
+    padding: 0 16px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.wb-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #888888;
+    font-size: 1rem;
+}
+
+/* Word Card */
+.word-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 16px;
+    border: 1px solid #E5E5EA;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.2s;
+}
+
+.word-card:active {
+    transform: scale(0.98);
+}
+
+.word-card.expanded {
+    border-color: #FF3B30;
+    box-shadow: 0 4px 20px rgba(255, 59, 48, 0.1);
+}
+
+.word-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.word-term {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #111111;
+}
+
+.word-pos {
+    font-size: 0.75rem;
+    color: #888888;
+    font-style: italic;
+}
+
+.word-details {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #E5E5EA;
+    overflow: hidden;
+}
+
+.word-definition,
+.word-example {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333333;
+}
+
+.word-example {
+    font-style: italic;
+    color: #666666;
+}
+
+.word-tip {
+    background: #FFF9E6;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #5D4E37;
+}
+
+.tip-icon {
+    margin-right: 6px;
+}
+
+.expand-hint {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #AAAAAA;
+}
